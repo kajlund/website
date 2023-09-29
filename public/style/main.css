@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400;500;700|Inconsolata:400');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400');
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Lato:wght@300;400;700&display=swap');
+
+/* Variables */
+:root{
+  --ff-primary:   "Lato", Helvetica, sans-serif;
+  --ff-secondary: "Damion", Helvetica, sans-serif;
+
+  --col-white:           #fff;
+  --col-grey-dk:         #333;
+  --col-grey-md:         #ccc;
+  --col-grey-lt:         #fafafa;
+
+  --col-orange-100:      #ffe5b4;
+  --col-orange-200:      #ffb347;
+  --col-orange-300:      #ffa500;
+  --col-orange-400:      #ff9f00;
+  --col-orange-500:      #f28500;
+  --col-orange-600:      #ee7600;
+  --col-orange-700:      #ff6700;
+  --col-orange-800:      #ff7518;
+
+  --col-btn-highlight:   #c3e76a;
+
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.5rem;
+
+  /* Box Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  --smallWidth: 85vw;
+  --maxWidth: 1170px;
+}
+
+/* Simple reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Globals Mobile first */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: 500;
+  color: var(--col-grey-lt);
+  line-height: 1.4;
+  font-size: 0.875rem; /* 14px for mobile */
+  margin-top: 4rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--col-orange-400);
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--ff-secondary);
+  color: var(--col-orange-400);
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 3rem; font-weight: 700; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 0.875rem; }
+p  { margin-bottom: 1.25rem; }
+
+h1 span, h2 span, h3 span {
+  color: var(--col-orange-400);
+}
+
+ul {
+  list-style-type: none;
+  padding: none;
+}
+
+/* Globals Larger Screens */
+
+@media screen and (min-width:800px) {
+  h1, h2, h3, h4 {
+    line-height: 1;
+    outline: none;
+  }
+  h1   { font-size: 4rem;   }
+  h2   { font-size: 2.5rem; }
+  h3   { font-size: 2rem;   }
+  h4   { font-size: 1rem;   }
+  body { font-size: 1rem;   }
+}
+
+
+.icon-left {
+  margin-right: 0.5rem;
+}
+
+.icon-left {
+  margin-left: 0.5rem;
+}
+
+.page {
+  width: var(--smallWidth);
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  margin-top: 6rem;
+}
+
+/* Form controls */
+
+.form-control {
+  padding: 0.5rem 0;
+  width: 100%;
+  margin: 0.25rem 0;
+}
+
+.field {
+  border: 1px solid var(--col-grey-md);
+  border-radius: 4px;
+  background: var(--col-white);
+  padding: 0.2rem 0.25rem;
+  transition: border-color 0.1s ease-out;
+}
+
+.field:focus {
+  border-color: var(--col-orange-400) !important;
+  outline: none;
+}
+
+.field::placeholder {
+  opacity: 0.2;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: var(--col-grey-dk);
+  display: block;
+  width: 100%;
+}
+
+.error-message {
+  margin: 0;
+  margin-left: 0.5rem;
+  padding: 0;
+  color: var(--col-orange-400);
+  font-size: 0.8rem;
+}

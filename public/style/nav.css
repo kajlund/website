@@ -1,0 +1,79 @@
+/* Navigation styles */
+
+.navbar {
+  background: var(--col-grey-lt);
+  height: 60px;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: var(--spacing);
+  transition: var(--mainTransition);
+  padding: 0.25rem 0.5rem;
+}
+
+.nav-links a i {
+  font-size: 32px;
+  margin-right: 0.3rem;
+}
+
+.nav-links a:hover {
+  border-bottom: 2px solid var(--col-orange-200);
+}
+
+a.active {
+  border-bottom: 2px solid var(--col-orange-200);
+}
+
+.brand {
+  display: flex;
+}
+
+.brand i {
+  font-size: 28px;
+}
+
+.brand .site-title {
+  font-family: 'Montserrat' sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+}
+
+.nav-aside {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-right: 1rem;
+  border: 2px solid #333;
+}

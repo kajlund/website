@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/style/reset.css" />
+  <link rel="stylesheet" href="/style/main.css" />
+  <link rel="stylesheet" href="/style/nav.css" />
+  <link rel="stylesheet" href="/style/buttons.css" />
+  <title>KL - {{ title }} </title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <!--Logo /-->
+        <a href="/" class="brand">
+          <i class="material-symbols-outlined">code_blocks</i>
+          <div class="site-title">kajlund.com</div>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="/" class={{ title === 'Home' ? 'active' : ''}}>
+              <i class="material-symbols-outlined">home</i>Home
+            </a>
+          </li>
+          <li>
+            <a href="/posts" class:sel={active === 'blog'}>
+              <i class="material-symbols-outlined">pages</i>Blog
+            </a>
+          </li>
+          <li>
+            <a href="/about" class:sel={active === 'about'}>
+              <i class="material-symbols-outlined">info</i>About
+            </a>
+          </li>
+        </ul>
+
+        <!--Navbar Aside -->
+        <div class="nav-aside">
+          @if(isLoggedIn)
+            <img class="avatar" src="{{ avatar }}" alt="avatar">
+            <a href="/auth/logoff" class="btn">
+              <i class="material-symbols-outlined icon-right">logout</i> Logout
+            </a>
+          @else
+            <a href="/auth/logon" class="btn">
+              <i class="material-symbols-outlined icon-left">login</i> Logon
+            </a>
+          @end
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page">
+    @!section('page')
+  </section>
+
+  <footer>
+  </footer>
+</body>
+</html>
+
