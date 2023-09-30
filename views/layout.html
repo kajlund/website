@@ -10,9 +10,8 @@
   <link rel="stylesheet" href="/style/main.css" />
   <link rel="stylesheet" href="/style/nav.css" />
   <link rel="stylesheet" href="/style/buttons.css" />
-  <title>KL - {{ title }} </title>
+  <title>KL - {{title}}</title>
 </head>
-
 <body>
   <header>
     <nav class="navbar">
@@ -22,19 +21,20 @@
           <i class="material-symbols-outlined">code_blocks</i>
           <div class="site-title">kajlund.com</div>
         </a>
+
         <ul class="nav-links">
           <li>
-            <a href="/" class={{ title === 'Home' ? 'active' : ''}}>
+            <a href="/" class="{{ 'active' if title === 'Home' }}">
               <i class="material-symbols-outlined">home</i>Home
             </a>
           </li>
           <li>
-            <a href="/posts" class:sel={active === 'blog'}>
+            <a href="/posts" class="{{ 'active' if title === 'Blog' }}">
               <i class="material-symbols-outlined">pages</i>Blog
             </a>
           </li>
           <li>
-            <a href="/about" class:sel={active === 'about'}>
+            <a href="/about" class="{{ 'active' if title === 'About' }}">
               <i class="material-symbols-outlined">info</i>About
             </a>
           </li>
@@ -42,23 +42,34 @@
 
         <!--Navbar Aside -->
         <div class="nav-aside">
-          @if(isLoggedIn)
+          {% if isLoggedIn %}
             <img class="avatar" src="{{ avatar }}" alt="avatar">
             <a href="/auth/logoff" class="btn">
               <i class="material-symbols-outlined icon-right">logout</i> Logout
             </a>
-          @else
+          {% elif title !== 'Logon' %}
             <a href="/auth/logon" class="btn">
               <i class="material-symbols-outlined icon-left">login</i> Logon
             </a>
-          @end
+          {% endif %}
         </div>
       </div>
     </nav>
   </header>
 
+  {% if errors %}
+  <section class="errors">
+    {% for err in errors %}
+      <pre> {{ err.msg }}</pre>
+    {% endfor %}
+  </section>
+{% endif %}
+
+
   <section class="page">
-    @!section('page')
+    {% block main %}
+      <h2>This is the default main content</h2>
+    {% endblock %}
   </section>
 
   <footer>

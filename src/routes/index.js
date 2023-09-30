@@ -1,12 +1,11 @@
 import express from 'express'
 import crypto from 'node:crypto'
 
-
 const router = express.Router()
 
 router.get('/', async (req, res, next) => {
   const user = {
-    email: 'user@gmail.com'
+    email: 'user@gmail.com',
   }
 
   try {
@@ -14,7 +13,7 @@ router.get('/', async (req, res, next) => {
     const avatar = `https://www.gravatar.com/avatar/${hash}?s=36`
 
     res.render('home', {
-      pageTitle: 'Welcome!',
+      title: 'Home',
       isLoggedIn: false,
       avatar,
     })
