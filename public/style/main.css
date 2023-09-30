@@ -106,7 +106,11 @@ ul {
   body { font-size: 1rem;   }
 }
 
-
+.errors {
+  display: block;
+  padding: 1rem;
+  background-color: hotpink;
+}
 .icon-left {
   margin-right: 0.5rem;
 }
@@ -123,6 +127,31 @@ ul {
 }
 
 /* Form controls */
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2rem;
+}
+
+.form-info {
+  color: var(--col-grey-md);
+}
+
+.cmd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-logon {
+  max-width: 30rem;
+  border: 1px solid var(--col-orange-400);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
 
 .form-control {
   padding: 0.5rem 0;

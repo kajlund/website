@@ -1,0 +1,40 @@
+{% extends "../layout.html" %}
+
+{% block main %}
+<h1>Logon</h1>
+<form
+  class="form form-logon"
+  method="post"
+  action="/todos/add">
+  <div class="form-control">
+    <label class="label" for="email">Email</label>
+    <input
+      class="field"
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Email address"
+      required />
+  </div>
+  <div class="form-control">
+    <label class="label" for="password">Password</label>
+    <input
+      class="field"
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Password"
+      required />
+  </div>
+  <p class="form-info">Not registered? Register
+    <a href="/auth/register">here</a>
+  </p>
+  <div class="cmd">
+    <button class="btn outline" type="submit">
+      <i class="material-symbols-outlined icon-left">login</i>
+      Logon
+    </button>
+    <a href="/">Cancel</a>
+  </div>
+</form>
+{% endblock %}
