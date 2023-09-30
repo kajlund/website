@@ -1,16 +1,17 @@
-button {
+button.btn {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
 }
+
 button:focus {
   outline: none;
 }
 
-a {
-display: flex;
-align-items: center;
-flex-wrap: nowrap;
+a.btn {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .btn {
@@ -56,13 +57,14 @@ flex-wrap: nowrap;
 
 .outline {
   background-color: transparent;
-  color: var(--col-primary-400);
-  border: 2px solid var(--col-primary-200);
+  border: 2px solid transparent;
+  color: var(--col-orange-400);
+  border: 2px solid var(--col-orange-400);
 }
 .outline:hover,
 .outline:active {
   background-color: transparent;
-  border: 2px solid var(--col-primary-200);
+  border: 2px solid var(--col-orange-200);
   box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);
 }
 
