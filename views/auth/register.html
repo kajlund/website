@@ -6,11 +6,13 @@
 <form class="form form-logon" method="post" action="/auth/register">
   <div class="form-control">
     <label class="label" for="username">Username</label>
-    <input class="field" type="text" name="username" id="username" placeholder="Username" required />
+    <input class="field" type="text" name="username" id="username" placeholder="Username"
+      value={{data.username}} required />
   </div>
   <div class="form-control">
     <label class="label" for="email">Email</label>
-    <input class="field" type="email" name="email" id="email" placeholder="Email address" required/>
+    <input class="field" type="email" name="email" id="email" placeholder="Email address"
+      value={{data.email}} required/>
   </div>
   <div class="form-control">
     <label class="label" for="password">Password</label>
@@ -29,13 +31,5 @@
     <a href="/">Cancel</a>
   </div>
 </form>
-
-{% if(errors) %}
-  <section class="errors">
-    {% for err in errors %}
-      <pre> {{ err.msg }}</pre>
-    {% endfor %}
-  </section>
-{% endif %}
 
 {% endblock %}

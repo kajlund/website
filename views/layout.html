@@ -43,7 +43,7 @@
         <!--Navbar Aside -->
         <div class="nav-aside">
           {% if isLoggedIn %}
-            <img class="avatar" src="{{ avatar }}" alt="avatar">
+            <img class="avatar" src="{{ user.avatar }}" alt="avatar">
             <a href="/auth/logoff" class="btn">
               <i class="material-symbols-outlined icon-right">logout</i> Logout
             </a>
@@ -57,6 +57,7 @@
     </nav>
   </header>
 
+  {{ messages() }}
   {% if errors %}
   <section class="errors">
     {% for err in errors %}

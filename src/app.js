@@ -3,19 +3,19 @@ import path from 'node:path'
 import express from 'express'
 import messages from 'express-messages'
 import flash from 'connect-flash'
-// import passport from 'passport'
 import session from 'express-session'
 import njks from 'nunjucks'
 
 import db from './db.js'
-import indexRoutes from './routes/index.js'
 import authRoutes from './routes/auth.js'
+import indexRoutes from './routes/index.js'
+import log from './utils/log.js'
 
 const app = express()
 const { configure } = njks
 
 // Middleware for url encoding
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 app.use(express.static('public'))
 
@@ -28,13 +28,24 @@ configure('views', {
 app.set('views', path.join(process.cwd(), 'views'))
 
 // Session handling
+app.set('trust proxy', 1)
 app.use(
   session({
-    secret: 'secret',
-    saveUninitialized: true,
-    resave: true,
+    name: 'session',
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false, // true for https only
+      maxAge: 600000 * 10, // 10 min
+    },
   }),
 )
+
+app.use((req, res, next) => {
+  log.info(req.session)
+  next()
+})
 
 // Flash messages
 app.use(flash())

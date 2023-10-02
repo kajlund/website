@@ -1,21 +1,15 @@
 import express from 'express'
-import crypto from 'node:crypto'
 
 const router = express.Router()
 
 router.get('/', async (req, res, next) => {
-  const user = {
-    email: 'user@gmail.com',
-  }
+  const user = req.session ? req.session.user : null
 
   try {
-    const hash = crypto.createHash('md5').update(user.email).digest('hex')
-    const avatar = `https://www.gravatar.com/avatar/${hash}?s=36`
-
     res.render('home', {
       title: 'Home',
-      isLoggedIn: false,
-      avatar,
+      isLoggedIn: req.session.user ? true : false,
+      user,
     })
   } catch (err) {
     next(err)

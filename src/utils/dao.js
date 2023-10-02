@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-import db from '../db/db.js'
+import db from '../db.js'
 
 export const findMany = async (table, query) => {
   const { filter, sort, limit, skip } = query
